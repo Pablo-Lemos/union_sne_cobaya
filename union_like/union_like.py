@@ -7,10 +7,8 @@ from cobaya.likelihood import Likelihood
 
 class UnionLike(Likelihood):
     def initialize(self):
-        PATH = "/Users/pablo/Code/Cosmo/Union_cobaya/union_like"
         self.z, self.mu = np.loadtxt(self.dataset_file, usecols=[1, 2], unpack=True)
         self.invcov = np.loadtxt(self.cov_file)
-        #self.invcov = np.linalg.inv(cov)
     
     def get_requirements(self):
         return {'angular_diameter_distance': {"z": self.z}}
@@ -20,6 +18,4 @@ class UnionLike(Likelihood):
         dL = (1+self.z)*(1+self.z)*DA
         mu = 5*np.log10(dL) + 25.
         delta = self.mu - mu 
-        #print(delta[:5])
-        #print(self.invcov[:5, :5])
         return -0.5*delta.dot(self.invcov).dot(delta.T)
