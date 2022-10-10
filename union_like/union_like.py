@@ -8,8 +8,8 @@ from cobaya.likelihood import Likelihood
 class UnionLike(Likelihood):
     def initialize(self):
         PATH = "/Users/pablo/Code/Cosmo/Union_cobaya/union_like"
-        self.z, self.mu = np.loadtxt(os.path.join(PATH, "union_data/sn_z_mu_dmu_plow_union2.1.txt"), usecols=[1, 2], unpack=True)
-        self.invcov = np.loadtxt(os.path.join(PATH, "union_data/sn_wmat_nosys_union2.1.txt"))
+        self.z, self.mu = np.loadtxt(self.dataset_file, usecols=[1, 2], unpack=True)
+        self.invcov = np.loadtxt(self.cov_file)
         #self.invcov = np.linalg.inv(cov)
     
     def get_requirements(self):

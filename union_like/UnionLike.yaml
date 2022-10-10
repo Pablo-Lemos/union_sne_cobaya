@@ -1,4 +1,4 @@
 dataset: Union
-dataset_file: union_data/sn_z_mu_dmu_plow_union2.1.txt
-cov_file: union_data/sn_wmat_nosys_union2.1.txt
+dataset_file: union_like/union_data/sn_z_mu_dmu_plow_union2.1.txt
+cov_file: union_like/union_data/sn_wmat_nosys_union2.1.txt
 aliases: []
